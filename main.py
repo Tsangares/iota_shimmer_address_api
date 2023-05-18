@@ -50,7 +50,7 @@ def si_unit_smr(val):
 @app.route('/balance/<address>')
 def get_balance(address: str):
     if not client.is_address_valid(address):
-        return {'error': 'Not a valid address'}
+        return {'error': 'Not a valid address', address: address}
     elif address[:4]=="iota":
         return si_unit_iota(get_iota_balance(address))
     elif address[:3]=="smr":
